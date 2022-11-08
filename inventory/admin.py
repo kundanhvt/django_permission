@@ -16,5 +16,16 @@ class ProductAdmin(admin.ModelAdmin):
         if not is_superuser:
             form.base_fields['name'].disabled = True
         return form
-    
+        
+    def has_add_permission(self, request) -> bool:
+        return False
+
+    def has_change_permission(self, request, obj=None) -> bool:
+        return False
+
+    def has_delete_permission(self, request, obj=None) -> bool:
+        return False
+
+    def has_view_permission(self, request, obj = None) -> bool:
+        return True
     
